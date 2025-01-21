@@ -63,6 +63,12 @@ $ cd owlmind
 $ pip3 install --break-system-packages -r requirements.txt
 ```
 
+Alternativce:
+
+```
+$ python3 -m pip install --break-system-packages -r requirements.txt
+```
+
 (3.b) Setup the Discord Bot TOKEN
 * Get the TOKEN you created in (Step 1)
 * Create the file .env inside fodler 'owlmind':
