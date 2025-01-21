@@ -35,6 +35,11 @@ Follow the instructions at: [How-to Configure a Discord Bot with OwlMind?](docs/
 
 ### (Step 2) Install OwlMind locally
 
+Note: To follow this step you must have GIT installed locally.
+Instructions at:
+[](https://github.com/git-guides/install-git)
+
+
 (2.a) Clone the source from GitHub:
 
 ```
