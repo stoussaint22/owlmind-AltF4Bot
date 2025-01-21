@@ -7,7 +7,7 @@
 <img src="docs/images/owlmind-banner.png" width="800">
 -->
 
-### [Get Started](#sample-section) | Underst | Extend | Contribute
+### [Get Started](#getting-started) | [Understand](#understanding) | [Extend](#extending) | [Contribute](#contributing)
 
 </center>
 
@@ -16,6 +16,8 @@
 OwlMind is a DIY Education Experimentation Platform being created by The Generative Intelligence Lab, at Florida Atlantic University. The focus is on education, helping students to get quick results whle implementing consumable GenAI-based Agentic System 
 
 ## Getting Started
+
+During this process you will:
 
 1. Configure your Discord Bot 
 2. Install OwlMind locally
@@ -26,36 +28,44 @@ OwlMind is a DIY Education Experimentation Platform being created by The Generat
 
 Follow the instructions at: [How-to Configure a Discord Bot with OwlMind?](docs/discord.md)
 
-Save the TOKEN that you will create thought this process; we will use it in Step 3.
+* **Save the TOKEN** that you created thought this process; we will use it in Step 
+* **Provide the URL to the Discord Server admin** for adding to the server. 
+* Notice that **the Bot will be offline**  until you connect to the Bot Runner (next).
 
-### (Step 22) Install OwlMind locally
+### (Step 2) Install OwlMind locally
 
-Clone source from GitHub:
+(2.a) Clone the source from GitHub:
 
 ```
 $ git clone https://github.com/GenILab-FAU/owlmind.git
 ```
 
-If you have 'gh' installed (https://github.com/cli/cli)
+<img src="docs/images/screen-git.png" width="600">
 
-```
-$ gh repo clone GenILab-FAU/owlmind
-```
 
 ### 3. Animate your Discord Bot with an OwlMind BotBrain
 
-(3.a) Setup the Discord Bot TOKEN
-* Get the TOKEN you created in (Step 1)
-* Create a .env file like:
+(3.a) Install the requirements:
+
+Move inside the folder 'owlmind' and execute:
+
 ```
-# .env file
+$ cd owlmind
+$ pip3 install --break-system-packages -r requirements.txt
+```
+
+(3.b) Setup the Discord Bot TOKEN
+* Get the TOKEN you created in (Step 1)
+* Create the file .env inside fodler 'owlmind':
+```
+# FILE :: .env
 TOKEN={My Token}
 ```
 
-Alternatively, you can hard-code the token within bot-1.py
+Alternatively, you can hard-code the TOKEN within bot-1.py
 
 ```
-# bot-1.py
+# FILE :: bot-1.py
 
 (...)
 if __name__ == '__main__':
@@ -71,15 +81,26 @@ if __name__ == '__main__':
 ```
 
 
+(3.c) Execute the 'getting started' BotMind:
 
+```
+$ python3 bot-1.py
+```
 
+It should startup like this:
 
+<img src="docs/images/screen-startup.png" width="600">
+
+At this point your Bot should be animated:
+
+![screen-startup](docs/images/screen-demo-1.png)
 
 
 ## Understanding
-
+(to be completed)
+<!---
 <img src="docs/images/owlmind-arch.png" width="200">
-
+--->
 
 
 
