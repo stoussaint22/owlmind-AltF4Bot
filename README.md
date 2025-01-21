@@ -97,9 +97,7 @@ At this point your Bot should be animated (check on Discord!)
 
 ## Understanding
 
-<center>
-<img src="docs/images/owlmind-arch.png" width="500">
-</center>
+<img src="docs/images/owlmind-arch.png" width=800>
 
 OwlMind provides the base to create Rule-Based Agents that will be connected to diverse elements (see Fig. 1):
 * Bot Runner for Discord Bots
