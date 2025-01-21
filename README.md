@@ -7,7 +7,7 @@
 <img src="docs/images/owlmind-banner.png" width="800">
 -->
 
-### [Get Started](#getting-started) | [Understand](#understanding) | [Extend](#extending) | [Contribute](#contributing)
+### [Get Started](#getting-started) | [Understand](#understanding) | Extend | Contribute
 
 </center>
 
@@ -15,14 +15,6 @@
 
 OwlMind is a DIY Education Experimentation Platform being created by The Generative Intelligence Lab, at Florida Atlantic University. The focus is on education, helping students to get quick results whle implementing consumable GenAI-based Agentic System.
 
-<img src="docs/images/owlmind-arch.png">
-
-OwlMind provides the base to create Rule-Based Agents that will be connected to diverse elements (see Fig. 1):
-* Bot Runner for Discord Bots
-* Agentic Core to configure Rule-based systems.
-* Configurable GenAI Pipelines.
-* Extension to configure Workflow Templates to be applied during Prompt Augmentation proccess. 
-* Extension to configure Artifacts to external functionally, such as Functions, Databases, RAG systems, Web Apps, Frameworks, Controllers, and others.
 
 ## Getting Started
 
@@ -100,19 +92,26 @@ It should startup like this:
 
 <img src="docs/images/screen-startup.png" width="600">
 
-At this point your Bot should be animated:
-
-![screen-startup](docs/images/screen-demo-1.png)
+At this point your Bot should be animated (check on Discord!)
 
 
 ## Understanding
-(to be completed)
-<!---
-<img src="docs/images/owlmind-arch.png" width="200">
---->
+
+<center>
+<img src="docs/images/owlmind-arch.png" width="500">
+</center>
+
+OwlMind provides the base to create Rule-Based Agents that will be connected to diverse elements (see Fig. 1):
+* Bot Runner for Discord Bots
+* Agentic Core to configure Rule-based systems.
+* Configurable GenAI Pipelines.
+* Extension to configure Workflow Templates to be applied during Prompt Augmentation proccess. 
+* Extension to configure Artifacts to external functionally, such as Functions, Databases, RAG systems, Web Apps, Frameworks, Controllers, and others.
 
 
 
+### What should I be configuring?
 
+* (NO-CODE) [Configure SimpleMind Rules](docs/simplemind.md)
 
 
