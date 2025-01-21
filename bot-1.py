@@ -31,7 +31,8 @@ if __name__ == '__main__':
     # load token from .env
     config = dotenv_values(".env")
     TOKEN = config['TOKEN']
-    # TOKEN={My Token}
+    ## Alternative: Hard-code your TOKEN here and remote the comment:
+    # TOKEN={My Token} 
 
     # Load Simples Bot Brain loading rules from a CSV
     brain = SimpleBrain(id='bot-1')
