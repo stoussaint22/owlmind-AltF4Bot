@@ -25,6 +25,14 @@ During this process you will:
 3. Animate your Discord Bot with an OwlMind BotBrain
 4. Customize your OwlMind BotBrain
 
+Note: To follow this step you must have PYTHON and GIT installed locally.
+
+[How to install PYTHON and PIP?](https://packaging.python.org/en/latest/tutorials/installing-packages/)
+
+[How to install GIT?](https://github.com/git-guides/install-git)
+
+
+
 ### (Step 1) Configure your Discord Bot 
 
 Follow the instructions at: [How-to Configure a Discord Bot with OwlMind?](docs/discord.md)
@@ -53,6 +61,12 @@ Move inside the folder 'owlmind' and execute:
 ```
 $ cd owlmind
 $ pip3 install --break-system-packages -r requirements.txt
+```
+
+Alternativce:
+
+```
+$ python3 -m pip install --break-system-packages -r requirements.txt
 ```
 
 (3.b) Setup the Discord Bot TOKEN
