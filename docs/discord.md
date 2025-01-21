@@ -1,6 +1,6 @@
 # How-to Configure a Discord Bot with OwlMind?
 
-This document explains how to configure a Discord Bot and connect to a OwnMind Agent-based Bot Engine.
+This document explains how to configure a Discord Bot and connect to a OwnMind Agent-based Bot Runner.
 
 You will need:
 1. Create a DISCORD TOKEN (Application Key), which represnets your Bot within Discord

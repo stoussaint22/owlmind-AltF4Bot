@@ -3,12 +3,8 @@
 
 <center>
 <img src="docs/images/owlmind-banner.png">
-<!--
-<img src="docs/images/owlmind-banner.png" width="800">
--->
 
 ### [Get Started](#getting-started) | [Understand](#understanding) | Extend | Contribute
-
 </center>
 
 # OwlMind 
@@ -34,7 +30,7 @@ Note: To follow this step you must have PYTHON3, PIP3 and GIT installed locally.
 
 ### (Step 1) Configure your Discord Bot 
 
-Follow the instructions at: [How-to Configure a Discord Bot with OwlMind?](docs/discord.md)
+Follow the instructions at: [How-to Configure a Discord Bot with Owlmind?](docs/discord.md)
 
 * **Save the TOKEN** that you created thought this process; we will use it in Step 
 * **Provide the URL to the Discord Server admin** for adding to the server. 
