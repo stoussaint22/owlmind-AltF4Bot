@@ -4,7 +4,7 @@
 <center>
 <img src="docs/images/owlmind-banner.png">
 
-### [Get Started](#getting-started) | [Understand](#understanding) | Extend | Contribute
+### [Get Started](#getting-started) | [Understand](#understanding) | [Extend](#extending) | [Contribute](#contributing)
 </center>
 
 # OwlMind 
