@@ -72,10 +72,10 @@ $ python3 -m pip install --break-system-packages -r requirements.txt
 * Create the file .env inside fodler 'owlmind':
 ```
 # FILE :: .env
-TOKEN={My Token}
+TOKEN=My_Token_Goes_Here
 ```
 
-Alternatively, you can hard-code the TOKEN within bot-1.py
+Alternatively, you can hard-code the TOKEN within bot-1.py:
 
 ```
 # FILE :: bot-1.py
@@ -85,7 +85,7 @@ if __name__ == '__main__':
     (...)
 
     ## Alternative: Hard-code your TOKEN here and remote the comment:
-    # TOKEN={My Token} 
+    # TOKEN="My_Token_Goes_Here"
 
     (...)
     # Kick start the Bot Runner process

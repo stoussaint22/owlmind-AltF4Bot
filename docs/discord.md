@@ -79,7 +79,6 @@ Got 'OAuth2':
 ![Bot OAuth](/docs/images/discord-7.png)
 
 
-
 ## (3) Deploy the Bot to our Discord Server
 
 * You must be ADMIN (or have "Manage Server") permission to invite the Bot.
@@ -93,7 +92,7 @@ Got 'OAuth2':
 
 ## (4) Connect your Bot to an OwlMind Bot Runner
 
-* You must have a Python 3.9+ enviroment installed.
+* You must have a Python 3.10+ enviroment installed.
 * The Bot Runner is a blocker process; it will be keeping the bot alive while executing
 * If you stop the Bot Runner, the Bot goes offline.
 * Due to the nature of the Discord Bot implementation, one cannot execute the Bot Engine from a Jupyter Notebook or similar.
@@ -106,15 +105,50 @@ https://github.com/GenILab-FAU/owlmind
 
 * With teh TOKEN from Step (1), EITHER [configure a file .env](https://medium.com/@oadaramola/a-pitfall-i-almost-fell-into-d1d3461b2fb8) OR hard-code TOKEN={Your_Token}
 * Install Python requirements from requirements.txt (pip3 insall -r requirements.txt)
-* Execute the code (python3 bot-1.py)
+* Execute the code 
 
+```
+python3 bot-1.py
+```
 The Bot should go online and able to respond some very basic sentences.
 
-Next:
-* How-to configure dialog Rules for bot-1.py?
-* How-to integrate GenAI pipelines to bot-1.py?
-* How-to create OwnMind Agents with Rules, Internal Behaviour and Functions?
-* How-to create OwnMind Pipelines with Workflows, Prompt Augmentation, and Model Integration?
+
+## What to do next?
+
+* Configure dialog Rules in bot-1.py to support different Use Cases
+* Configure GenAI Pipelines with bot-1.py to extend conversation capabilites
+* Configure Prompt Engineering Workflows to improve reasoning.
+* Configure Artifacts in the GenAI Pipelines to extend reasoning capabilites
+
+
+## COMMON PROBLEMS
+
+* Issues with Python3 version compatibility
+
+We tested with Python 3.11, 3.12, and above. 
+
+Check your python version with:
+
+```
+$ python3 --version
+Python 3.13.1
+```
+
+
+
+* Missing module **audioop**
+
+This seems to be related to python3.13>. Importing this module has been included in requirements.txt. 
+
+Alternatively:
+
+```
+pip3 install audioop-lts
+```
+
+
+
+
 
 
 

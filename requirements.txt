@@ -4,6 +4,6 @@
 # pip3 install --break-system-packages -r requirements.txt
 #
 
-audioop-lts==0.2.1
 discord==2.3.2
 python-dotenv==1.0.1
+audioop-lts; python_version>='3.13'
