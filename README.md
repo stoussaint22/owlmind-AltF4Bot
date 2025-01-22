@@ -118,10 +118,10 @@ OwlMind provides the base to create Rule-Based Agents that will be connected to 
 * Extension to configure Workflow Templates to be applied during Prompt Augmentation proccess. 
 * Extension to configure Artifacts to external functionally, such as Functions, Databases, RAG systems, Web Apps, Frameworks, Controllers, and others.
 
+## Extending
 
 
-### What should I be configuring?
+## Contributing
 
-* (NO-CODE) [Configure SimpleMind Rules](docs/simplemind.md)
 
 

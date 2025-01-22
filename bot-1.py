@@ -18,13 +18,17 @@
 # Documentation and Getting Started:
 #    https://github.com/GenILab-FAU/owlmind
 #
+# Class Documentation at:
+#    https://github.com/GenILab-FAU/owlmind/docs/bot-1.md
+#
 # Disclaimer: 
 # Generative AI has been used extensively while developing this package.
 # 
 
 from dotenv import dotenv_values
 from owlmind.discord import DiscordBot
-from owlmind.botengine import SimpleBrain
+from owlmind.simplebrain import SimpleBrain
+
 
 if __name__ == '__main__':
 

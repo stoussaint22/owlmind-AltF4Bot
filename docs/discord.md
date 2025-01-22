@@ -113,13 +113,6 @@ python3 bot-1.py
 The Bot should go online and able to respond some very basic sentences.
 
 
-## What to do next?
-
-* Configure dialog Rules in bot-1.py to support different Use Cases
-* Configure GenAI Pipelines with bot-1.py to extend conversation capabilites
-* Configure Prompt Engineering Workflows to improve reasoning.
-* Configure Artifacts in the GenAI Pipelines to extend reasoning capabilites
-
 
 ## COMMON PROBLEMS
 
@@ -145,6 +138,15 @@ Alternatively:
 ```
 pip3 install audioop-lts
 ```
+
+## What to do next?
+
+* Configure dialog Rules in bot-1.py to support different Use Cases
+* Configure GenAI Pipelines with bot-1.py to extend conversation capabilites
+* Configure Prompt Engineering Workflows to improve reasoning.
+* Configure Artifacts in the GenAI Pipelines to extend reasoning capabilites
+
+
 
 
 
