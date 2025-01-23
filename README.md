@@ -9,18 +9,19 @@
 
 # OwlMind 
 
-OwlMind is a DIY Education Experimentation Platform being created by The Generative Intelligence Lab, at Florida Atlantic University. The focus is on education, helping students to get quick results whle implementing consumable GenAI-based Agentic System.
+Lab at Florida Atlantic University. Designed with a focus on education, OwlMind empowers students to rapidly achieve tangible outcomes by implementing consumable Generative AI (GenAI)-based Agentic Systems. By providing a flexible and user-friendly environment, OwlMind fosters creativity and innovation in building rule-based agents connected to diverse systems and workflows.
 
-OwlMind provides the base to create Rule-Based Agents that will be connected to diverse elements (see Fig. 1):
-* Bot Runner for Discord Bots
-* Agentic Core to configure Rule-based systems.
-* Configurable GenAI Pipelines.
-* Extension to configure Workflow Templates to be applied during Prompt Augmentation proccess. 
-* Extension to configure Artifacts to external functionally, such as Functions, Databases, RAG systems, Web Apps, Frameworks, Controllers, and others.
- 
+OwlMind to support a wide array of use cases, from simple rule-based automation to advanced AI-driven applications. It is designed to enable the creation and deployment of rule-based agents by connecting them with various systems and workflows. Each element of the platform contributes to a modular and efficient way of configuring and operating Generative AI (GenAI)-powered agents. 
+
 <img src="docs/images/owlmind-arch.png" width=800>
+The core components include:
 
-
+* Bot Runner for Discord Bots, acts as the interface to host and execute bots on platforms like Discord, providing users with a conversational agent to interact with.
+* Agentic Core: providing deliberation at the heart of the platform, enabling users to define and configure rule-based systems.
+* Configurable GenAI Pipelines: supports flexible and dynamic pipelines to integrate large-scale Generative AI models into workflows.
+* Workflow Templates: offering pre-configured or customizable templates that simplify the Prompt Augmentation Process.
+* Artifacts: represents modular components that connect agents to external functionalities, such as web-connection, databses, RAG systems, cloud apps, and others
+  
 
 ## Getting Started
 
