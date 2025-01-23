@@ -23,7 +23,7 @@ The core components include:
 * **Artifacts**: represents modular components that connect agents to external functionalities, such as web-connection, databses, RAG systems,interacting with APIs,  and others
 * **Model Orchestrator**: connecting diverse Generative AI models into its pipelines, providing developers with flexibility and simplicity.
 
-The Agentic Core  adheres to the [Belief-Desire-Intention (BDI) framework](https://cdn.aaai.org/ICMAS/1995/ICMAS95-042.pdf) for agent-based systems. This cognitive architecture ensures that agents are capable of goal-oriented behavior by structuring their decision-making process around:
+The Agentic Core adheres to the [Belief-Desire-Intention (BDI) framework](https://en.wikipedia.org/wiki/Belief–desire–intention_software_model) for agent-based systems. This cognitive architecture ensures that agents are capable of goal-oriented behavior by structuring their decision-making process around:
 * **Beliefs**: represent the agent’s knowledge or perception of the environment. These beliefs act as the foundational understanding upon which the agent evaluates its actions.
 * **Desires**: define the agent's objectives or goals it wishes to achieve, such as completing a workflow, retrieving specific data, or responding to user queries.
 * **Intentions**: represent the plans or strategies the agent actively commits to in order to achieve its desires, balancing feasibility and optimality.
