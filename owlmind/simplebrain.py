@@ -38,7 +38,8 @@ class SimpleBrain(BotBrain):
         process(context):
             Processes a BotMessage context, matches it against the loaded plans, and assigns a response based on the best match.
     """
-        
+    VERSION = "1.1"
+
     def __init__(self, id):
         super().__init__(id)
         self += Plan(condition={'message':'_'}, action='I have no idea how to respond!')
@@ -90,13 +91,20 @@ class SimpleBrain(BotBrain):
         Simplified logic to process incoming messages.
         When the message (Context) matches any plan (Rules), collect the top-matching result.
         """
-        if context in self.plans:
-            if self.debug: print(f'SimpleBrain: response={context.best_result}, alternatives={len(context.all_results)}, score={context.match_score}')
+        if context['message'].startswith('/instructions'):
+            context.response = f'Version: {SimpleBrain.VERSION}\n'
+            context.response += f'I have {len(self.plans)} plans.\n\n'
+            plan_str : str = str(self.plans)
+            context.response += plan_str[0:1500]
 
+        elif context in self.plans:
+            if self.debug: print(f'SimpleBrain: response={context.best_result}, alternatives={len(context.all_results)}, score={context.match_score}')
             if self.is_action(context.best_result):
                 context.response = f'it should be an action here: {context.best_result[0], context.best_result[1]}'
             else: 
                 context.response = context.best_result
+        else:
+            context.response = "(DEFAULT) There are no Rules matching this request"
         return 
 
 
