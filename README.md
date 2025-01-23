@@ -4,16 +4,12 @@
 <center>
 <img src="docs/images/owlmind-banner.png">
 
-[Understand](#design) | ### [Get Started](#getting-started) | [Extend](#extending) | [Contribute](#contributing)
+### [Understand](#owlmind) | [Get Started](#getting-started) | [Extend](#extending) | [Contribute](#contributing)
 </center>
 
 # OwlMind 
 
 OwlMind is a DIY Education Experimentation Platform being created by The Generative Intelligence Lab, at Florida Atlantic University. The focus is on education, helping students to get quick results whle implementing consumable GenAI-based Agentic System.
-
-## Design
-
-<img src="docs/images/owlmind-arch.png" width=800>
 
 OwlMind provides the base to create Rule-Based Agents that will be connected to diverse elements (see Fig. 1):
 * Bot Runner for Discord Bots
@@ -21,6 +17,9 @@ OwlMind provides the base to create Rule-Based Agents that will be connected to 
 * Configurable GenAI Pipelines.
 * Extension to configure Workflow Templates to be applied during Prompt Augmentation proccess. 
 * Extension to configure Artifacts to external functionally, such as Functions, Databases, RAG systems, Web Apps, Frameworks, Controllers, and others.
+ 
+<img src="docs/images/owlmind-arch.png" width=800>
+
 
 
 ## Getting Started
