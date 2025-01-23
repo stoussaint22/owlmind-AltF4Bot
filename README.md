@@ -1,27 +1,28 @@
 
 
 
-<center>
-<img src="docs/images/owlmind-banner.png">
+<img src="docs/images/owlmind-banner.png" width=800>
 
 ### [Understand](#owlmind) | [Get Started](#getting-started) | [Extend](#extending) | [Contribute](#contributing)
-</center>
 
 # OwlMind 
 
-Lab at Florida Atlantic University. Designed with a focus on education, OwlMind empowers students to rapidly achieve tangible outcomes by implementing consumable Generative AI (GenAI)-based Agentic Systems. By providing a flexible and user-friendly environment, OwlMind fosters creativity and innovation in building rule-based agents connected to diverse systems and workflows.
+OwlMind Framework for Education and Experimentation with Generative Intelligence System, is being designed and build by the The Generative Intelligence Lab at Florida Atlantic University. The focus is on education, empowering students to rapidly achieve tangible outcomes by implementing consumable GenAI-based Agentic Systems. OwlMind aims to foster creativity and innovation by providing a flexible and user-friendly environment to build rule-based logic connected to GenAI workflows.
 
-OwlMind to support a wide array of use cases, from simple rule-based automation to advanced AI-driven applications. It is designed to enable the creation and deployment of rule-based agents by connecting them with various systems and workflows. Each element of the platform is part of a modular and efficient way of configuring and operating GenAI-powered systems. 
+OwlMind is desinged to support a wide array of use cases, from simple rule-based automation to advanced AI-driven applications. Each element of the platform is part of a modular and efficient way of configuring and operating GenAI-powered systems. 
+
 
 <img src="docs/images/owlmind-arch.png" width=800>
+
 The core components include:
 
 * **Bot Runner for Discord Bots**: acts as the interface to host and execute bots on platforms like Discord, providing users with a conversational agent to interact with.
-* **Agentic Core**: providing deliberation at the heart of the platform, enabling users to define and configure rule-based systems.
+* **Agentic Core**: provides deliberation at the heart of the platform, enabling users to define and configure rule-based systems.
 * **Configurable GenAI Pipelines**: supports flexible and dynamic pipelines to integrate large-scale Generative AI models into workflows.
-* **Workflow Templates**: offering pre-configured or customizable templates that simplify the Prompt Augmentation Process.
+* **Workflow Templates**: offers pre-configured or customizable templates that simplify the Prompt Augmentation Process.
 * **Artifacts**: represents modular components that connect agents to external functionalities, such as web-connection, databses, RAG systems,interacting with APIs,  and others
-* **Model Orchestrator**: connecting diverse Generative AI models into its pipelines, providing developers with flexibility and simplicity.
+* **Model Orchestrator**: connects diverse Generative AI models into its pipelines, providing developers with flexibility and simplicity.
+
 
 The Agentic Core adheres to the [Belief-Desire-Intention (BDI) framework](https://en.wikipedia.org/wiki/Belief–desire–intention_software_model) for agent-based systems. This cognitive architecture ensures that agents are capable of goal-oriented behavior by structuring their decision-making process around:
 * **Beliefs**: represent the agent’s knowledge or perception of the environment. These beliefs act as the foundational understanding upon which the agent evaluates its actions.
@@ -123,8 +124,10 @@ It should startup like this:
 
 <img src="docs/images/screen-startup.png" width="600">
 
-At this point your Bot should be animated (check on Discord!)
+At this point your Bot should be animated and you can chat with it on Discord:
 
+
+<img src="docs/images/screen-demobot.png" width="600">
 
 
 ## Extending
