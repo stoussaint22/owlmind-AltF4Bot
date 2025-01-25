@@ -118,7 +118,7 @@ class Agent():
         self.plans = PlanBase()
         self.capabilities = CapabilityBase()
         self._current_command : Command = None
-        self._exec_queue : deque = deque()
+        self._delib_queue : deque = deque()
         self._action_queue : deque = deque()
         return 
     
@@ -131,7 +131,7 @@ class Agent():
         elif isinstance(knowledge, Capability):
             self.capabilities += knowledge
         elif isinstance(knowledge, Command):
-            self._exec_queue.append(knowledge)
+            self._delib_queue.append(knowledge)
         elif isinstance(knowledge, Belief) or isinstance(knowledge, dict):
             self.beliefs += knowledge
         else:
@@ -147,21 +147,25 @@ class Agent():
     ## DELIBERATION LOGIC
     ##
 
-    def is_action(self, goal): 
+    @staticmethod
+    def is_action(goal): 
         return (isinstance(goal, str) and goal.startswith('@')) or \
-                (isinstance(goal, tuple) and goal[0].startswith('@'))
+               (isinstance(goal, tuple) and goal[0].startswith('@'))
     
-    def run(self):
+    def deliberate(self):
         """ 
-        Process commands from Execution Queue
+        Deliberation process
         """
-        # (1) Execute existing Commands and formed Plans
-        while self._exec_queue:
-            cmd : Command = self._exec_queue.popleft()
+
+        #
+        # (1) Execute 'Requests for Deliberation' (Commands) in the deliberation queue
+
+        while self._delib_queue:
+            cmd : Command = self._delib_queue.popleft()
             self._local_context = cmd
             goal = cmd.namespace
 
-            if Agent._is_action(goal):
+            if Agent.is_action(goal):
                 goal = self.beliefs.compile(sentence=goal)
                 self._action_queue.append(goal)
             elif cmd in self.plans:
@@ -170,8 +174,9 @@ class Agent():
             else:
                 if Context.DEBUG: print(f'Agent.run(): there are no Plans for this Command, {cmd}')
 
-
-        # (2) Execute resulting Actions
+        #
+        # (2) Execute 'Requests to Act' (Actions) in the action queue, if any
+        
         while self._action_queue:
             action, params = self._action_queue.popleft()
             print('--->', action)
@@ -179,10 +184,10 @@ class Agent():
     
     def process(self, goal=None, context=None):
         """
-        Process a Goal within an specific Context
+        Deliberate about a Goal within an specific Context
         """
         self += Command(goal=goal, context=context)
-        self.run()
+        self.deliberate()
         return
     
 

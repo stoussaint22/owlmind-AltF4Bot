@@ -1,13 +1,12 @@
 
 
-
 <img src="docs/images/owlmind-banner.png" width=800>
 
-### [Understand](#owlmind) | [Get Started](#getting-started) | [Extend](#extending) | [Contribute](#contributing)
+### [Understand](./README.md#owlmind) | [Get Started](./README.md#getting-started) | [Extend](./README.md#extending) | [Contribute](./CONTRIBUTING.md)
 
 # OwlMind 
 
-OwlMind Framework for Education and Experimentation with Generative Intelligence System, is being designed and build by the The Generative Intelligence Lab at Florida Atlantic University. The focus is on education, empowering students to rapidly achieve tangible outcomes by implementing consumable GenAI-based Agentic Systems. OwlMind aims to foster creativity and innovation by providing a flexible and user-friendly environment to build rule-based logic connected to GenAI workflows.
+OwlMind Framework is being created by The Generative Intelligence Lab at Florida Atlantic University with the purpose to support Education and Experimentation with Generative Intelligence System. The focus is on education, empowering students to rapidly achieve tangible outcomes by implementing consumable GenAI-based Agentic Systems. 
 
 OwlMind is desinged to support a wide array of use cases, from simple rule-based automation to advanced AI-driven applications. Each element of the platform is part of a modular and efficient way of configuring and operating GenAI-powered systems. 
 
@@ -58,48 +57,66 @@ Follow the instructions at: [How-to Configure a Discord Bot with Owlmind?](docs/
 
 ### (Step 2) Install OwlMind locally
 
+Before you continue:
+* You'll need Python 3.11 or higher
+* [How to install PYTHON and PIP?](https://packaging.python.org/en/latest/tutorials/installing-packages/)
+
+
 (2.a) Clone the source from GitHub:
 
-```
-$ git clone https://github.com/GenILab-FAU/owlmind.git
+```bash
+git clone git@github.com:GenILab-FAU/owlmind.git
+cd owlmind
 ```
 
 <img src="docs/images/screen-git.png" width="600">
 
+#### Suggestion: create then activate a virtual environment
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+```bash
+# For Windows use
+python -m venv venv
+. venv/Scripts/activate
+
+# For more details, see https://docs.python.org/3/library/venv.html#creating-virtual-environments
+```
+
+#### Install the requirements
+
+Run this command inside ./owlmind folder you downloaded above:
+
+```bash
+python -m pip install -r requirements.txt
+python -m pip install -e .
+hash -r  # This resets shell PATH cache, not necessary on Windows
+```
+
+Alternatively, you will have to execute as:
+
+```bash
+python -m pip install --break-system-packages -r requirements.txt
+```
+
 
 ### 3. Animate your Discord Bot with an OwlMind BotBrain
 
-(3.a) Install the requirements:
 
-Move inside the folder 'owlmind' and execute:
-
-[How to install PYTHON and PIP?](https://packaging.python.org/en/latest/tutorials/installing-packages/)
-
-
-```
-$ cd owlmind
-$ pip3 install --break-system-packages -r requirements.txt
-```
-
-Alternative:
-
-```
-$ python3 -m pip install --break-system-packages -r requirements.txt
-```
-
-(3.b) Setup the Discord Bot TOKEN
+(3.a) Setup the Discord Bot TOKEN
 * Get the TOKEN you created in (Step 1)
 * Create the file .env inside fodler 'owlmind':
-```
-# FILE :: .env
+
+```bash
 TOKEN=My_Token_Goes_Here
 ```
 
 Alternatively, you can hard-code the TOKEN within bot-1.py:
 
-```
-# FILE :: bot-1.py
-
+```python
 (...)
 if __name__ == '__main__':
     (...)
@@ -116,7 +133,7 @@ if __name__ == '__main__':
 
 (3.c) Execute the 'getting started' BotMind:
 
-```
+```bash
 $ python3 bot-1.py
 ```
 
@@ -126,14 +143,13 @@ It should startup like this:
 
 At this point your Bot should be animated and you can chat with it on Discord:
 
-
 <img src="docs/images/screen-demobot.png" width="600">
 
 
 ## Extending
 
+(work in progress))
 
 ## Contributing
 
-
-
+Check [CONTRIBUTING](./CONTRIBUTING.md)

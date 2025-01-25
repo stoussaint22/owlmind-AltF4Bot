@@ -50,12 +50,8 @@ class Context(dict):
     print(c.compile('Hello $code and $name'))
 
     @REQUIRED
-    @TODO must be able to connect adn handle sub-context / shared Context, i.e. key=Context in __setitem__
-    @TODO must be able to refer to sub-context values with key like namespace/subkey/sub-subkey in __getitem__
-    @TODO must be able to match values of different types, including numeric, list, dict, Object in __contains__ (only str for now)
-    @TODO must improve  method for 'proximity calculation in Star-match' in __contains__
-    @TODO must improve 'arbitrary value' for regex matching in __contains__
-    @TODO must be able to hanlde multiple fact types in compile() (only str for now)
+    @TODO must be able to match values of different types (https://github.com/GenILab-FAU/owlmind/issues/6)
+    @TODO must be able to handle sub-context e.g. namespace/subkey/sub-subkey (https://github.com/GenILab-FAU/owlmind/issues/7)
     """
 
     _ = '_' # wildcard flag
@@ -100,38 +96,43 @@ class Context(dict):
     
     def __contains__(self, test:dict) -> bool:
         """
-        Check if test in self.
-         
-        Heuristic:
-        - Wildcard match with '*' or '_' (Container._)
+        Context-mathcing logic.
+        This is the key logic behind Context-matching and ContextRepos for the whole 
+        implementation.
+
+        The process matches Context-keys from test-Context and this Context as:
+        - Exact-match, when the two strings are the same (not-context sensitive)
+        - Wildcard-match with '*' or '_'
         - Star-matching for *value, value*, *value*
         - Regex-matching for r/regex/
-        - Matching-rate grows the more content is matched
+        - Match-score increases the more content is matched
         """
 
         # CUT-SHORT conditions
+        test.result = None
         if not test or not isinstance(test, Context):
             if Context.DEBUG: print(f'WARNING: Context.__contains__, test must be Context: {type(test)}')
-            test.result = 0.0
             return False
 
         # Processing
-        local_score = 0.0
         match_score = 0.0
-        match_values = {}
-        cut = True # initial beliefe about CUT unless proven to be False
+        match_subs = {}
+        cut = True # it thinks it will CUT, unless proven otherwise
         
         # @NOTE heuristic for key-value match rate
         for key, value in test.items():
             if super().__contains__(key):
 
-                # (1) Setup parameters
+                # Setup parameters
                 local_score = Context.MAX_CLAUSE 
                 target = self[key] if Context.CASE_SENSITIVE else self[key].lower()
                 value_str = isinstance(value, str)
                 value = value if value_str and Context.CASE_SENSITIVE else value.lower()
 
                 # (2) Process context-match
+
+                # @TODO it should test for type() here and have different logics for str/str, int/int, list/list, and combinations.
+
                 # (2.1) Exact value-match
                 if target == value: 
                     local_score += 1.0 
@@ -163,7 +164,7 @@ class Context(dict):
             
                 # if there was a value-match, annotate; otherwise CUT
                 if local_score > Context.MAX_CLAUSE:
-                    match_values[key] = self[key]
+                    match_subs[key] = self[key]
                     match_score += local_score
                 else: 
                     break
@@ -177,7 +178,10 @@ class Context(dict):
             cut = False 
 
         # (3) Load (or reset) Context-match values 
-        test.result = (match_values, match_score) if not cut else None
+        if not cut:
+            test.result = match_subs
+            test.score = match_score
+        
         return bool(test.result)
     
     @staticmethod
@@ -239,35 +243,12 @@ class ContextRepo():
     How to use this class:
 
     cr = ContextRepo()
-    cr += ContextRecord(condition={'code':'*'}, action=('@print',$code))
-    cr += ContextRecord(condition={'name':'*'}, action=('@print',$name))
+    cr += ContextRecord(condition={'code':'*'}, action=('@print','$code'))
+    cr += ContextRecord(condition={'name':'*'}, action=('@print','$name'))
 
     s = Context({'code':'3333', 'name': 'FK'})
     if s in cr:
-        print(c.result)
-
-    Results:
-
-    A = matching rules
-    B = list of substitutions
-    C = matching rate
-
-    Explanation:
-    That is, there is a Rule Repositoty named cr.
-    Assuming there is an action @print(c) that prints out 'c'.
-    Add a rule 'if there is a code, print out the code.
-    Add a rule 'if there is a name, print out the name'
-    There is a situation s where {'code':'3333', 'name': 'FK'}.
-    Then it checks what rules in 'cr' match the current situation 's'
-    Return the list of matching ContextRecords as the list:
-        [(A,B,C),...] where
-        A = matching rule
-        B = dict of substitutions during matching
-        C = matching rate
-
-    In the example above:
-        s.result = [ (ContextRecord({'code': '*'}, ('@print', '$code')), {'code': '3333'}, 100.25), 
-                     (ContextRecord({'name': '*'}, ('@print', '$name')), {'name': 'FK'}, 100.25)]
+        print(s.result)
 
     """
     def __init__(self, valid_class=ContextRecord):
@@ -312,10 +293,9 @@ class ContextRepo():
 
     def __contains__(self, target:Context):
         """
-        Checks whether a target-Context (current-Condition) matches any test-Condition stored in Repo.
-        Consider test.namespace if loaded, otherwise check default to Context._
-        Loads test.result with matching results as:
-            [ (matching rule, list of substitutions, matching rate), ... ]
+        Context-matching against ContextRepo.
+        Checkes if target-Context (current-Condition) matches any test-Condition stored in Repo.
+        narrows the search using test.namespace if loaded, otherwise check default to Context._
         """
 
         # CUT-SHORT conditions
@@ -333,14 +313,19 @@ class ContextRepo():
         # For every stored 'obj' insize {target.{namespace_field}}
         if namespace in self._repo:
             for record in self._repo[namespace].values():
-                recotd_ctx : Context = getattr(record, 'context', Context._) or Context._
-                if recotd_ctx in target:
-                    if recotd_ctx.result[0]:
-                        record.action = Context._compile(sentence=record.action, subs=recotd_ctx.result[0])
-                    matching_plans.append( (record.action, recotd_ctx.result[1]) )
+                record_ctx : Context = getattr(record, 'context', Context._) or Context._
 
-        # Sort and return the highest matching plan
-        matching_plans.sort(key=lambda x: x[1], reverse=True)  # Sort in descending order by score
+                ## @NOTE
+                # Does record_ctx (test) matches the target?
+                # If so, record_ctx was loaded with (check Context.__contains__):
+                #               record_ctx.results : substitutions aplied during the match process
+                #               record_ctx.match_score
+                if record_ctx in target:
+                    record.action = Context._compile(sentence=record.action, subs=record_ctx.result)
+                    matching_plans.append( (record.action, record_ctx.score) )
+
+        # Sort in descending order by score
+        matching_plans.sort(key=lambda x: x[1], reverse=True)  
 
         # Pick among the plans with the highest ranking
         highest_score = matching_plans[0][1] if matching_plans else None
@@ -361,5 +346,4 @@ class ContextRepo():
             for PlanRule in PlanRules.values():
                 output.append(f"    {PlanRule}")
         return f"{self.__class__.__name__}(\n{chr(10).join(output)}\n)"
-
 

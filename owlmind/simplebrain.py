@@ -38,7 +38,7 @@ class SimpleBrain(BotBrain):
         process(context):
             Processes a BotMessage context, matches it against the loaded plans, and assigns a response based on the best match.
     """
-    VERSION = "1.1"
+    VERSION = "1.2"
 
     def __init__(self, id):
         super().__init__(id)
@@ -73,7 +73,7 @@ class SimpleBrain(BotBrain):
         row_count = 0
         try:
             with open(file_name, mode='r', encoding='utf-8') as file:
-                reader = csv.DictReader(row for row in file if row.strip() and not row.strip().startswith('#'))
+                reader = csv.DictReader((row for row in file if row.strip() and not row.strip().startswith('#')), escapechar='\\')
                 for row in reader:
                     condition = {key.strip(): value.strip() for key, value in row.items() if key and value and key.strip().lower() != 'response'}
                     response = row.get(next((k for k in row.keys() if k.strip().lower() == 'response'), ''), '').strip()
