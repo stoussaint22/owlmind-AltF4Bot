@@ -65,6 +65,13 @@ Before you continue:
 (2.a) Clone the source from GitHub:
 
 ```bash
+git clone https://github.com/GenILab-FAU/owlmind.git
+cd owlmind
+```
+
+This should also work:
+
+```bash
 gh repo clone GenILab-FAU/owlmind
 cd owlmind
 ```
