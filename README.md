@@ -65,9 +65,10 @@ Before you continue:
 (2.a) Clone the source from GitHub:
 
 ```bash
-git clone git@github.com:GenILab-FAU/owlmind.git
+gh repo clone GenILab-FAU/owlmind
 cd owlmind
 ```
+
 
 <img src="docs/images/screen-git.png" width="600">
 
