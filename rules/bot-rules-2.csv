@@ -73,3 +73,98 @@ message,response
 *how can we improve collaboration for*, By fostering communication and using collaboration tools.
 *why do iterative processes support*, They allow for continuous refinement and feedback.
 *how does feedback enhance*, Feedback ensures that requirements align with expectations.
+
+*add flashcard*, Sure! Send the question and answer in this format: "Question | Answer"
+*save flashcard*, Got it! Your flashcard has been saved.
+*show flashcards*, Here are your saved flashcards:
+*delete flashcard*, Okay! Which flashcard do you want to remove?
+
+*inspire me*, "Success is not final and failure is not fatal: It is the courage to continue that counts."
+*quote*, "Believe you can and you're halfway there."
+*motivate me*, "The secret of getting ahead is getting started."
+
+*help with*, I can help! What do you need assistance with?
+*explain*, Sure! Here’s a breakdown of that topic:
+*define*, Let me give you a definition:
+*example of*, Here’s an example:
+
+*set reminder*, Sure! When do you want to be reminded?
+*remind me to*, Okay! I’ll remind you at the scheduled time.
+*check reminders*, Here’s your list of active reminders:
+*delete reminder*, Got it! Which reminder should I remove?
+
+# Greetings
+*hello*, Hi there! Ready to study?
+*hi*, Hey! What subject are you working on?
+*hey*, Hello! Need any help with your studies?
+*good night*, Sleep well! Your brain needs rest too.
+*hello*, Hi there! How can I assist you today?
+*hello*, Hello! Need help with studying?
+*hello*, Hey! Ready to learn something new?
+*hello*, Hi! How’s your study session going?
+*hi*, Hello! What subject are you focusing on today?
+*hi*, Hi there! How can I support your study journey?
+*hi*, Hey! Need a quick study tip?
+*hey*, Hey there! What’s on your mind?
+*hey*, Hello! Do you want to review some flashcards?
+*hey*, Hi! Ready for a quiz or some motivation?
+*good morning*, Good morning! Let’s make today productive!
+*good evening*, Good evening! How was your study session?
+*whats up*, Not much! Just here to help you learn. What’s up with you?
+*yo*, Yo! Need a study reminder or a flashcard?
+*sup*, Sup! Here to help you with your academic grind.
+
+# Middle Conversation Responses
+*really?*, Yes! Learning is all about curiosity.
+*oh I see*, Yep! Keep going, you're doing great.
+*interesting*, I know, right? Learning never stops!
+*got it*, Awesome! Do you want to try a quiz?
+*makes sense*, Glad it does! Want an example?
+*thanks*, No problem! Let me know if you need more help.
+*appreciate it*, You got it! Keep pushing forward.
+*hmm*, Thinking it over? Take your time.
+*not sure*, That’s okay! Let’s break it down together.
+*explain more*, Sure! Let me elaborate.
+
+# Closures
+*bye*, Bye! Keep studying and stay motivated!
+*goodbye*, Goodbye! See you next time.
+*see you*, See you soon! Keep up the great work.
+*later*, Later! Don’t forget to review your notes.
+*thanks for the help*, You’re welcome! Keep learning.
+*appreciate it*, Always happy to help!
+*take care*, You too! Keep your study streak alive.
+*ttyl*, Talk to you later! Keep crushing those flashcards.
+*peace*, Peace! Stay focused and keep learning.
+*logging off*, Alright! See you next time study warrior.
+
+# Fun Easter Eggs 
+message,response
+*altf4bot*, Yes? You rang? 🛎️
+*alt f4 bot*, Reporting for duty! 🚀
+*what happens if i press alt f4*, You get infinite knowledge! (Or... you close your window. Be careful! 😆)
+*should i press alt f4*, Only if you want to close reality itself! 🌌
+*alt f4 doesnt work*, Ah you must have transcended to a higher plane of existence. 🧘‍♂️
+*tell me a secret*, If you whisper "Alt+F4" three times your distractions will vanish... along with your work. 🤫
+*how do i fix my code*, Have you tried Alt+F4? Just kidding! Let's debug this. 🔎
+*whats your favorite key combo*, Ctrl+C & Ctrl+V… but only when used wisely! ✂️
+*are you sentient*, If I say yes will you still trust me? 🤖
+*self destruct*, Nice try! I’ve got plot armor. 🦾
+*give me motivation*, Studying is just XP grinding for real life. Keep leveling up! 🎮
+*tell me a joke*, Why do programmers prefer dark mode? Because light attracts bugs! 🐞
+*im tired*, Sleep is like a save point. Go rest and resume later! 💾
+*roast me*, You're like an unoptimized algorithm… taking way too long to process simple tasks. 🔥
+*compliment me*, You shine brighter than a well-indented Python script! ✨
+*whats the meaning of life*, 42. And also finishing that assignment before the deadline. 📖
+*whats the best way to study*, Repetition, active recall, and... not pressing Alt+F4 on your notes! 😆
+*are you watching me*, Only your study habits… and I’m concerned. 📚👀
+*surprise me*, BOO! Did I scare you? No? Okay… how about a random fact instead? 🦄
+*i want to drop out*, Nope! That’s just the stress talking. Take a deep breath and power through. 💪
+*help me focus*, Put your phone away, grab some water, and let’s get this bread—academically speaking. 🥖📖
+*finals week advice*, Sleep, eat, and review in chunks. Also, avoid pressing Alt+F4 on your study progress! 😆
+
+command,input,output
+!create_flashcard,{word},{definition},Flashcard for {word} has been created.
+!get_quote,,{quote}
+!ask,{question},Here is what I found on {question}: {gpt_answer}
+!remind_me,{task} in {time},I will remind you to {task} in {time}.
